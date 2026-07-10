@@ -6,3 +6,4 @@ __pycache__/
 tmp/
 private_submissions/
 .venv/
+.playwright-mcp/

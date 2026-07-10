@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>量化交易研究作品集</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview">Quant Trading Lab</a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#overview">总览</a>
+        <a href="#task1">TASK1</a>
+        <a href="#task2">TASK2</a>
+        <a href="#task3">TASK3</a>
+        <a href="#task4">TASK4</a>
+        <a href="#dashboard">指标面板</a>
+      </nav>
+      <a class="source-link" href="https://github.com/Mrright36988/quant-trading" target="_blank" rel="noreferrer">GitHub</a>
+    </header>
+
+    <main>
+      <section id="overview" class="hero">
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/task2_bollinger.png" alt="">
+          <img src="assets/task2_macd.png" alt="">
+          <img src="assets/task2_kdj.png" alt="">
+        </div>
+        <div class="hero-content">
+          <div class="project-label">Research Projects</div>
+          <h1>量化交易研究作品集</h1>
+          <p class="lead">围绕广发证券日线数据，完成数据获取、基础诊断、技术指标计算、双均线与海龟策略回测，以及可复现实验脚本。</p>
+          <div class="hero-actions">
+            <a href="#dashboard">查看指标面板</a>
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK2" target="_blank" rel="noreferrer">查看 TASK2 源码</a>
+          </div>
+        </div>
+        <div class="signal-grid" aria-label="最新指标信号">
+          <article class="signal-card">
+            <span>信号 A: RSI 强弱</span>
+            <strong id="rsi-signal">--</strong>
+            <small id="rsi-detail">等待数据</small>
+          </article>
+          <article class="signal-card">
+            <span>信号 B: MACD 动能</span>
+            <strong id="macd-signal">--</strong>
+            <small id="macd-detail">等待数据</small>
+          </article>
+          <article class="signal-card">
+            <span>信号 C: 布林位置</span>
+            <strong id="band-signal">--</strong>
+            <small id="band-detail">等待数据</small>
+          </article>
+          <article class="signal-card score-card">
+            <span>综合评分</span>
+            <strong id="score-value">--</strong>
+            <small id="score-detail">等待数据</small>
+          </article>
+        </div>
+      </section>
+
+      <section id="task1" class="section-grid">
+        <div class="section-copy">
+          <p class="section-kicker">TASK1</p>
+          <h2>行情数据获取与收盘价观察</h2>
+          <p>使用 Tushare 工具获取广发证券日线行情，保存 CSV 数据，并绘制过去一年收盘价曲线，作为后续指标计算的数据基础。</p>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK1" target="_blank" rel="noreferrer">TASK1 目录</a>
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK1/fetch_tushare_stock.py" target="_blank" rel="noreferrer">数据脚本</a>
+          </div>
+        </div>
+        <figure class="image-panel">
+          <img src="assets/task1_close.png" alt="广发证券过去一年每日收盘价曲线">
+          <figcaption>图1 广发证券过去一年每日收盘价曲线</figcaption>
+        </figure>
+      </section>
+
+      <section id="task2" class="section-grid reverse">
+        <div class="section-copy">
+          <p class="section-kicker">TASK2</p>
+          <h2>技术指标计算与诊断分析</h2>
+          <p>在原始行情数据基础上完成缺失值检查、描述性统计，并计算 RSI、MACD、布林带和 KDJ 指标。指标结果同步输出为 CSV，便于网页端复用。</p>
+          <div class="metric-strip">
+            <div><span id="sample-count">--</span><small>交易日</small></div>
+            <div><span id="latest-close">--</span><small>最新收盘</small></div>
+            <div><span id="latest-date">--</span><small>最后日期</small></div>
+          </div>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK2/build_task2.py" target="_blank" rel="noreferrer">计算脚本</a>
+            <a href="data/task2_indicators.csv">指标数据</a>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="TASK2 静态图表">
+          <img src="assets/task2_rsi.png" alt="RSI 指标图">
+          <img src="assets/task2_macd.png" alt="MACD 指标图">
+          <img src="assets/task2_bollinger.png" alt="布林带指标图">
+          <img src="assets/task2_kdj.png" alt="KDJ 指标图">
+        </div>
+      </section>
+
+      <section id="task3" class="section-grid">
+        <div class="section-copy">
+          <p class="section-kicker">TASK3</p>
+          <h2>双均线策略回测</h2>
+          <p>基于 5 日 / 15 日均线金叉死叉生成买卖信号，完成次日开盘成交回测，输出累计收益、最大回撤和夏普比率，并在广发证券、招商银行、贵州茅台上做多参数（5/15、5/20、10/30、20/60）对比。</p>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK3" target="_blank" rel="noreferrer">TASK3 目录</a>
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK3/build_task3.py" target="_blank" rel="noreferrer">策略脚本</a>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="TASK3 静态图表">
+          <img src="assets/task3_ma_signal.png" alt="广发证券双均线买卖信号图">
+          <img src="assets/task3_nav.png" alt="策略与基准净值对比图">
+          <img src="assets/task3_drawdown.png" alt="策略回撤曲线图">
+        </div>
+      </section>
+
+      <section id="task4" class="section-grid reverse">
+        <div class="section-copy">
+          <p class="section-kicker">TASK4</p>
+          <h2>海龟交易策略</h2>
+          <p>计算唐奇安通道与 ATR，按通道突破入场、跌破下轨或 2 倍 ATR 止损离场，完成含佣金印花税的回测，并对通道周期、止损倍数和股票类型（券商 / 蓝筹 / 高波动成长）做参数敏感性分析。</p>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK4" target="_blank" rel="noreferrer">TASK4 目录</a>
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK4/build_task4.py" target="_blank" rel="noreferrer">策略脚本</a>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="TASK4 静态图表">
+          <img src="assets/task4_channel.png" alt="唐奇安通道与买卖信号图">
+          <img src="assets/task4_atr.png" alt="ATR 波动率图">
+          <img src="assets/task4_equity.png" alt="海龟策略资金曲线图">
+          <img src="assets/task4_params.png" alt="参数敏感性对比图">
+        </div>
+      </section>
+
+      <section id="dashboard" class="dashboard">
+        <div class="dashboard-head">
+          <div>
+            <p class="section-kicker">Interactive Dashboard</p>
+            <h2>广发证券技术指标面板</h2>
+          </div>
+          <p>数据来源于 TASK2 生成的公开指标 CSV。</p>
+        </div>
+        <div class="chart-layout">
+          <article class="chart-card wide">
+            <div class="chart-title">
+              <h3>收盘价</h3>
+              <span>Close</span>
+            </div>
+            <canvas id="price-chart" width="960" height="320" aria-label="收盘价图表"></canvas>
+          </article>
+          <article class="chart-card">
+            <div class="chart-title">
+              <h3>RSI</h3>
+              <span>14 日</span>
+            </div>
+            <canvas id="rsi-chart" width="520" height="300" aria-label="RSI 图表"></canvas>
+          </article>
+          <article class="chart-card">
+            <div class="chart-title">
+              <h3>MACD</h3>
+              <span>DIF / DEA / 柱</span>
+            </div>
+            <canvas id="macd-chart" width="520" height="300" aria-label="MACD 图表"></canvas>
+          </article>
+          <article class="chart-card wide">
+            <div class="chart-title">
+              <h3>布林带</h3>
+              <span>20 日均线 ± 2 倍标准差</span>
+            </div>
+            <canvas id="bollinger-chart" width="960" height="320" aria-label="布林带图表"></canvas>
+          </article>
+          <article class="chart-card wide">
+            <div class="chart-title">
+              <h3>KDJ</h3>
+              <span>K / D / J</span>
+            </div>
+            <canvas id="kdj-chart" width="960" height="320" aria-label="KDJ 图表"></canvas>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Quant Trading Lab</span>
+      <a href="https://github.com/Mrright36988/quant-trading" target="_blank" rel="noreferrer">Repository</a>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>
