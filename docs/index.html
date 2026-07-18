@@ -15,6 +15,8 @@
         <a href="#task2">TASK2</a>
         <a href="#task3">TASK3</a>
         <a href="#task4">TASK4</a>
+        <a href="#task5">TASK5</a>
+        <a href="#task6">TASK6</a>
         <a href="#dashboard">指标面板</a>
       </nav>
       <a class="source-link" href="https://github.com/Mrright36988/quant-trading" target="_blank" rel="noreferrer">GitHub</a>
@@ -30,7 +32,7 @@
         <div class="hero-content">
           <div class="project-label">Research Projects</div>
           <h1>量化交易研究作品集</h1>
-          <p class="lead">围绕广发证券日线数据，完成数据获取、基础诊断、技术指标计算、双均线与海龟策略回测，以及可复现实验脚本。</p>
+          <p class="lead">围绕广发证券日线数据，完成数据获取、基础诊断、技术指标计算、双均线与海龟策略回测，并延伸到机器学习分类模型与因子选股策略，全部实验脚本可复现。</p>
           <div class="hero-actions">
             <a href="#dashboard">查看指标面板</a>
             <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK2" target="_blank" rel="noreferrer">查看 TASK2 源码</a>
@@ -131,6 +133,42 @@
           <img src="assets/task4_atr.png" alt="ATR 波动率图">
           <img src="assets/task4_equity.png" alt="海龟策略资金曲线图">
           <img src="assets/task4_params.png" alt="参数敏感性对比图">
+        </div>
+      </section>
+
+      <section id="task5" class="section-grid">
+        <div class="section-copy">
+          <p class="section-kicker">TASK5</p>
+          <h2>AI 交易引擎：分类模型入门</h2>
+          <p>在 scikit-learn 乳腺癌二分类数据集上训练逻辑回归、决策树和随机森林三种分类器，划分训练 / 测试集后用混淆矩阵、准确率、精确率、召回率、F1 与 ROC / AUC 全面对比模型表现，并分析特征重要性，为把分类模型迁移到交易信号预测打基础。</p>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK5" target="_blank" rel="noreferrer">TASK5 目录</a>
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK5/build_task5.py" target="_blank" rel="noreferrer">建模脚本</a>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="TASK5 静态图表">
+          <img src="assets/task5_confusion.png" alt="三种分类模型混淆矩阵对比图">
+          <img src="assets/task5_roc.png" alt="ROC 曲线与 AUC 对比图">
+          <img src="assets/task5_metrics.png" alt="分类指标对比图">
+          <img src="assets/task5_importance.png" alt="特征重要性图">
+        </div>
+      </section>
+
+      <section id="task6" class="section-grid reverse">
+        <div class="section-copy">
+          <p class="section-kicker">TASK6</p>
+          <h2>机器学习定制选股策略</h2>
+          <p>构建市值、动量、估值等横截面因子面板，用决策树与随机森林回归预测个股下一季度收益，每季度买入预测排名前 30 的股票，在样本外滚动回测中与市场平均（全池等权）对比净值与超额收益，并用分组收益检验模型的截面区分能力。</p>
+          <div class="link-row">
+            <a href="https://github.com/Mrright36988/quant-trading/tree/main/TASK6" target="_blank" rel="noreferrer">TASK6 目录</a>
+            <a href="https://github.com/Mrright36988/quant-trading/blob/main/TASK6/build_task6.py" target="_blank" rel="noreferrer">策略脚本</a>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="TASK6 静态图表">
+          <img src="assets/task6_nav.png" alt="选股策略与市场平均净值对比图">
+          <img src="assets/task6_excess.png" alt="逐季超额收益图">
+          <img src="assets/task6_decile.png" alt="预测分组收益区分度图">
+          <img src="assets/task6_importance.png" alt="因子重要性图">
         </div>
       </section>
 
